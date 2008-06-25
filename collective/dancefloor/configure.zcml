@@ -1,6 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="collective.dancefloor">
 
     <!-- Make this package a Zope 2 product -->
@@ -11,7 +12,7 @@
       name="default"
       title="collective.dancefloor"
       directory="profiles/default"
-      description="A S&D extension to enable local newsletters"
+      description="A Singing &amp; Dancing extension to enable local newsletters"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
