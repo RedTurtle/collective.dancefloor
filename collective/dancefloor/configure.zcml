@@ -3,6 +3,18 @@
     xmlns:five="http://namespaces.zope.org/five"
     i18n_domain="collective.dancefloor">
 
+    <!-- Make this package a Zope 2 product -->
     <five:registerPackage package="." initialize=".initialize" />
 
+    <!-- Register the installation GenericSetup extension profile -->
+    <genericsetup:registerProfile
+      name="default"
+      title="collective.dancefloor"
+      directory="profiles/default"
+      description="A S&D extension to enable local newsletters"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
 </configure>
+
+<!-- vim: set ft=xml ts=2 sw=2 expandtab : -->
