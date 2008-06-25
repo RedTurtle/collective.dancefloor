@@ -1,8 +1,11 @@
 from zope.interface import Interface
 
-#from collective.dancefloor import dancefloorMessageFactory+ as _
+class IDanceFloor(Interface):
+    """ we can make parties on this dancefloor
+    """
 
-class IDanceFloorContainer(Interface):
-    """ a marker interface for job containers """
+class IDanceFloorParty(Interface):
+    """ there is a party on the floor
+    """
 
 # vim: set ft=python ts=4 sw=4 expandtab :
