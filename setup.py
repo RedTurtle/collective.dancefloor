@@ -25,7 +25,9 @@ setup(name='collective.dancefloor',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          # -*- Extra requirements: -*-
+          'collective.singing>=0.4dev',
+          'collective.dancing>=0.4dev',
+          'archetypes.schemaextender',
       ],
       entry_points="""
       # -*- Entry points: -*-
