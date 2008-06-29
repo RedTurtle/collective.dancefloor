@@ -1,11 +1,21 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
+    xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="collective.dancefloor">
 
     <!-- Make this package a Zope 2 product -->
     <five:registerPackage package="." initialize=".initialize" />
+
+    <include package="archetypes.schemaextender" />
+    <adapter
+        factory=".extender.FolderExtender"
+        name="collective.dacefloor.localparty"
+        />
+
+    <!--<subscriber handler=".handlers.register_local_utility" />-->
+    <!--<subscriber handler=".handlers.dancefloor_changed" />-->
 
     <!-- Folders are our Dancefloors -->
     <five:implements
@@ -21,6 +31,13 @@
       description="A Singing &amp; Dancing extension to enable local newsletters"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+
+      <browser:page
+         name="testview"
+         class=".extender.TestView"
+         for=".interfaces.IDanceFloor"
+         permission="zope2.View"
+         />
 
 </configure>
 

@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.1'
+version = '0.2'
 
 setup(name='collective.dancefloor',
       version=version,
@@ -15,8 +15,8 @@ setup(name='collective.dancefloor',
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
       keywords='',
-      author='Ramon Bartl',
-      author_email='ramon.bartl@inquant.de',
+      author='Ramon Bartl, Stefan Eletzhofer',
+      author_email='ramon.bartl@inquant.de, stefan.eletzhofer@inquant.de',
       url='https://svn.plone.org/svn/collective/collective.dancefloor/trunk',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
