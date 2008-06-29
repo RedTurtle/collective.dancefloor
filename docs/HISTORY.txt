@@ -1,8 +1,14 @@
 Changelog
 =========
 
+0.2 - Unreleased
+----------------
+
+* local utility for channel lookup added [seletz]
+
 0.1 - Unreleased
 ----------------
 
-* Initial release
+* schema extender for enabling local newsletter functionality
+  added [rbartl]
 
