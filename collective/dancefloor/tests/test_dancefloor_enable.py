@@ -2,12 +2,8 @@ import unittest
 
 from zope import interface
 
-from zope.app.component.interfaces import ISite
-
 from collective.dancefloor.tests.base import DanceFloorTestCase
 from collective.dancefloor.interfaces import *
-
-from collective.dancefloor.handlers import dancefloor_changed
 
 from Products.ATContentTypes.content.folder import ATFolder
 
@@ -26,22 +22,6 @@ class TestDancefloorEnabled(DanceFloorTestCase):
         df = ATFolder("dancefloor")
         self.failUnless("channels" not in df.keys())
         self.failUnless("collectors" not in df.keys())
-
-    def test_event_adds_channels(self):
-        dancefloor_changed(self.dancefloor, None)
-        self.failUnless("channels" not in self.dancefloor.keys(), "channels not created even inf no local party")
-
-        interface.alsoProvides(self.dancefloor, IDanceFloorParty)
-        dancefloor_changed(self.dancefloor, None)
-        self.failUnless("channels" in self.dancefloor.keys(), "channels not created")
-
-    def test_local_utility(self):
-        dancefloor = self.dancefloor
-        interface.alsoProvides(dancefloor, IDanceFloorParty)
-        dancefloor_changed(self.dancefloor, None)
-        self.failUnless(ISite.providedBy(dancefloor))
-
-
 
 
 def test_suite():

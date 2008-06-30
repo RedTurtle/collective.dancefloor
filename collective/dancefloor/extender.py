@@ -19,7 +19,10 @@ from collective.singing.interfaces import IChannelLookup
 
 from collective.dancefloor.interfaces import IDanceFloor
 from collective.dancefloor.interfaces import IDanceFloorParty
-from collective.dancefloor.handlers import add_tools
+from collective.dancefloor.interfaces import ILocalNewsletterLookup
+
+from collective.dancefloor.utils import get_name_for_site
+from collective.dancefloor.tools import add_tools
 
 from collective.dancefloor import dancefloorMessageFactory as _
 
@@ -33,7 +36,6 @@ def addMarkerInterface(obj, *ifaces):
     for iface in ifaces:
         if not iface.providedBy(obj):
             interface.alsoProvides(obj, iface)
-
 
 def removeMarkerInterface(obj, *ifaces):
     """ remove a marker interface
@@ -50,22 +52,24 @@ def enable_party(context):
         make_objectmanager_site(context)
 
     sm = context.getSiteManager()
+    name = get_name_for_site(context)
 
     add_tools(context)
 
     lookup = context.get("newsletter_lookup")
 
-    interface.directlyProvides(lookup, IChannelLookup)
-    sm.registerUtility(lookup, provided=IChannelLookup)
-    info("Local utility %s registered" % lookup)
+    interface.directlyProvides(lookup, ILocalNewsletterLookup)
+    sm.registerUtility(lookup, name=name, provided=ILocalNewsletterLookup)
+    info("Local utility %s@%s registered" % (lookup,name))
 
 def disable_party(context):
     if ISite.providedBy(context):
         sm = context.getSiteManager()
+        name = get_name_for_site(sm)
         lookup = context.get("newsletter_lookup")
         if lookup is not None:
-            sm.unregisterUtility(lookup, provided=IChannelLookup)
-            info("Local utility %s unregistered." % lookup)
+            sm.unregisterUtility(lookup, name=name, provided=IChannelLookup)
+            info("Local utility %s@%s unregistered." % (lookup, name))
 
 
 

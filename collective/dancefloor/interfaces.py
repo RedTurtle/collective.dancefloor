@@ -8,4 +8,10 @@ class IDanceFloorParty(Interface):
     """ there is a party on the floor
     """
 
+class ILocalNewsletterLookup(Interface):
+    """ a utility which returns local channels """
+
+    def local_channels():
+        """ return local channels """
+
 # vim: set ft=python ts=4 sw=4 expandtab :

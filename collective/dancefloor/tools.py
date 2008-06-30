@@ -25,26 +25,27 @@ __version__   = '$Revision$'[11:-2]
 
 import logging
 
-from zope import component
-from zope import interface
-
-from zope.app.container.interfaces import IObjectAddedEvent
-from zope.lifecycleevent.interfaces import IObjectModifiedEvent
-
+from collective.dancing.channel import ChannelContainer
+from collective.dancing.collector import CollectorContainer
+from collective.dancefloor.channels import LocalNewsletterLookup
 
 
 info = logging.getLogger("collective.dancefloor").info
 
 
+def add_tools(container):
 
+    if "channels" not in container.keys():
+        info("channels container added.")
+        container["channels"] = ChannelContainer("channels")
+        channels = container.get("channels")
+        del channels['default-channel']
 
-#@component.adapter(IDanceFloor, IObjectModifiedEvent)
-#def dancefloor_changed(dancefloor, event):
-    #info("EVENT: %s, %s" %(repr(dancefloor), repr(event)))
-    #if IDanceFloorParty.providedBy(dancefloor):
-        #info("Muh! There's a local party!")
-        #add_tools(dancefloor)
+    if "collectors" not in container.keys():
+        container["collectors"] = CollectorContainer("collectors")
+        info("collector container added.")
 
-
+    if "newsletter_lookup" not in container.keys():
+        container["newsletter_lookup"] = LocalNewsletterLookup("collectors")
 
 # vim: set ft=python ts=4 sw=4 expandtab :

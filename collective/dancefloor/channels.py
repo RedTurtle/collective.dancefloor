@@ -30,8 +30,10 @@ from zope import interface
 
 from collective.singing.interfaces import IChannelLookup
 
-from collective.dancefloor.interfaces import IDanceFloor
-from collective.dancefloor.interfaces import IDanceFloorParty
+from collective.dancefloor.interfaces import ILocalNewsletterLookup
+
+from collective.dancefloor.utils import get_site
+from collective.dancefloor.utils import get_name_for_site
 
 from Acquisition import aq_inner, aq_parent, aq_chain, Explicit
 from persistent import Persistent
@@ -40,11 +42,21 @@ from OFS.SimpleItem import SimpleItem
 
 info = logging.getLogger("collective.dancefloor.channels").info
 
-class ILocalNewsletterLookup(interface.Interface):
-    pass
+
+class ChannelLookupDelegator(object):
+    interface.implements(IChannelLookup)
+
+    def __call__(self):
+        site = get_site()
+        name = get_name_for_site(site)
+        local_lookup_utility = component.queryUtility(ILocalNewsletterLookup, name=name)
+        if local_lookup_utility:
+            return local_lookup_utility.local_channels()
+        return []
+
 
 class LocalNewsletterLookup(Explicit, SimpleItem):
-    interface.implements(ILocalNewsletterLookup, IChannelLookup)
+    interface.implements(ILocalNewsletterLookup)
 
     def local_channels(self):
         parent = aq_parent(aq_inner(self))
@@ -53,9 +65,6 @@ class LocalNewsletterLookup(Explicit, SimpleItem):
             info("Returning local channels of ctx %s: %s" % (repr(parent), channels.keys()))
             return channels.values()
         return []
-
-    def __call__(self):
-        return self.local_channels()
 
     def __repr__(self):
         return "<LocalNewsletterLookup at %s>" % id(self)

@@ -28,23 +28,34 @@ import logging
 from zope import component
 from zope import interface
 
-from zope.app.container.interfaces import IObjectAddedEvent
-from zope.lifecycleevent.interfaces import IObjectModifiedEvent
+from Products.CMFCore.interfaces import ISiteRoot
 
+from zope.app.component.interfaces import ISite
+from zope.app.component.hooks import getSite
 
 
 info = logging.getLogger("collective.dancefloor").info
 
 
+def get_context_from_request(request):
+    plone = component.getUtility(ISiteRoot)
+    path = "/".join(request.physicalPathFromURL(request.getURL()))
+    return plone.restrictedTraverse(path)
+
+def get_site():
+    """ Find the next Site iff we're not "on" a site already.  """
+    site = getSite()
+    request = site.REQUEST
+    context = get_context_from_request(request)
+
+    if ISite.providedBy(context):
+        return context
+
+    return site
 
 
-#@component.adapter(IDanceFloor, IObjectModifiedEvent)
-#def dancefloor_changed(dancefloor, event):
-    #info("EVENT: %s, %s" %(repr(dancefloor), repr(event)))
-    #if IDanceFloorParty.providedBy(dancefloor):
-        #info("Muh! There's a local party!")
-        #add_tools(dancefloor)
-
-
+def get_name_for_site(site):
+    path = site.getPhysicalPath()[1:]
+    return ".".join(path)
 
 # vim: set ft=python ts=4 sw=4 expandtab :
