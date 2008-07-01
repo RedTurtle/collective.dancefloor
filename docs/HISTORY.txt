@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.3.1 - fixup release
+---------------------
+
+* fix metadata version in generic setup [seletz]
+
 0.3 - first PyPi release
 ------------------------
 
