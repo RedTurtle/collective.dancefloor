@@ -21,7 +21,6 @@
 __author__ = """Stefan Eletzhofer <stefan.eletzhofer@inquant.de>"""
 __docformat__ = 'plaintext'
 
-import logging
 
 from zope import component
 
@@ -29,9 +28,6 @@ from Products.CMFCore.interfaces import ISiteRoot
 
 from zope.app.component.interfaces import ISite
 from zope.app.component.hooks import getSite
-
-
-info = logging.getLogger("collective.dancefloor").info
 
 
 def get_context_from_request(request):

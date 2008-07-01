@@ -21,27 +21,20 @@
 __author__ = """Stefan Eletzhofer <stefan.eletzhofer@inquant.de>"""
 __docformat__ = 'plaintext'
 
-import logging
-
 from collective.dancing.channel import ChannelContainer
 from collective.dancing.collector import CollectorContainer
 from collective.dancefloor.channels import LocalNewsletterLookup
 
 
-info = logging.getLogger("collective.dancefloor").info
-
-
 def add_tools(container):
 
     if "channels" not in container.keys():
-        info("channels container added.")
         container["channels"] = ChannelContainer("channels")
         channels = container.get("channels")
         del channels['default-channel']
 
     if "collectors" not in container.keys():
         container["collectors"] = CollectorContainer("collectors")
-        info("collector container added.")
 
     if "newsletter_lookup" not in container.keys():
         container["newsletter_lookup"] = LocalNewsletterLookup("collectors")

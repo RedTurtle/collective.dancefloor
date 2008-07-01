@@ -21,7 +21,6 @@
 __author__ = 'Ramon Bartl <ramon.bartl@inquant.de>'
 __docformat__ = 'plaintext'
 
-import logging
 
 from zope import interface
 from zope import component
@@ -46,9 +45,6 @@ from collective.dancefloor.utils import get_name_for_site
 from collective.dancefloor.tools import add_tools
 
 from collective.dancefloor import dancefloorMessageFactory as _
-
-
-info = logging.getLogger("collective.dancefloor").info
 
 
 def addMarkerInterface(obj, *ifaces):
@@ -83,7 +79,6 @@ def enable_party(context):
 
     interface.directlyProvides(lookup, ILocalNewsletterLookup)
     sm.registerUtility(lookup, name=name, provided=ILocalNewsletterLookup)
-    info("Local utility %s@%s registered" % (lookup, name))
 
 
 def disable_party(context):
@@ -93,7 +88,6 @@ def disable_party(context):
         lookup = context.get("newsletter_lookup")
         if lookup is not None:
             sm.unregisterUtility(lookup, name=name, provided=IChannelLookup)
-            info("Local utility %s@%s unregistered." % (lookup, name))
 
 
 class InterfaceMarkerField(ExtensionField, BooleanField):

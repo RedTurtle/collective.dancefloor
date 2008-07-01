@@ -21,8 +21,6 @@
 __author__ = """Stefan Eletzhofer <stefan.eletzhofer@inquant.de>"""
 __docformat__ = 'plaintext'
 
-import logging
-
 from zope import component
 from zope import interface
 
@@ -35,12 +33,10 @@ from collective.dancing.utils import fix_request
 
 from collective.dancefloor.interfaces import ILocalNewsletterLookup
 
-from collective.dancefloor.utils import get_site
+#from collective.dancefloor.utils import get_site
 from collective.dancefloor.utils import get_name_for_site
 
 from OFS.SimpleItem import SimpleItem
-
-info = logging.getLogger("collective.dancefloor.channels").info
 
 
 class ChannelLookupDelegator(object):
@@ -65,7 +61,6 @@ class LocalNewsletterLookup(Explicit, SimpleItem):
         parent = aq_parent(aq_inner(self))
         channels = parent.get("channels")
         if channels is not None:
-            info("Returning local channels of ctx %s: %s" % (repr(parent), channels.keys()))
             return channels.values()
         return []
 
