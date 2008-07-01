@@ -18,16 +18,16 @@
 #  along with this program; if not, write to the Free Software
 #  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-__author__    = """Stefan Eletzhofer <stefan.eletzhofer@inquant.de>"""
+__author__ = """Stefan Eletzhofer <stefan.eletzhofer@inquant.de>"""
 __docformat__ = 'plaintext'
 
 import logging
 
-from zope import component
-from zope import interface
+#from zope import component
+#from zope import interface
 
-from zope.app.container.interfaces import IObjectAddedEvent
-from zope.lifecycleevent.interfaces import IObjectModifiedEvent
+#from zope.app.container.interfaces import IObjectAddedEvent
+#from zope.lifecycleevent.interfaces import IObjectModifiedEvent
 
 info = logging.getLogger("collective.dancefloor").info
 

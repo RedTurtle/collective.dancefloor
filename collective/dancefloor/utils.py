@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# File: .py
+# File: utils.py
 #
 # Copyright (c) InQuant GmbH
 #
@@ -18,7 +18,7 @@
 #  along with this program; if not, write to the Free Software
 #  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-__author__  = """Stefan Eletzhofer <stefan.eletzhofer@inquant.de>"""
+__author__ = """Stefan Eletzhofer <stefan.eletzhofer@inquant.de>"""
 __docformat__ = 'plaintext'
 
 import logging
@@ -38,6 +38,7 @@ def get_context_from_request(request):
     plone = component.getUtility(ISiteRoot)
     path = "/".join(request.physicalPathFromURL(request.getURL()))
     return plone.restrictedTraverse(path)
+
 
 def get_site():
     """ Find the next Site iff we're not "on" a site already.  """
