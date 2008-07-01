@@ -42,12 +42,15 @@ class ChannelAdministrationView(channel.ChannelAdministrationView):
     __call__ = ViewPageTemplateFile('controlpanel.pt')
     label = _(u'Local channel administration')
 
+
 class CollectorAdministrationView(collector.CollectorAdministrationView):
     __call__ = ViewPageTemplateFile('controlpanel.pt')
     label = _(u'Local collector administration')
 
+
 class ChannelStatsView(stats.StatsView):
     index = ViewPageTemplateFile('controlpanel.pt')
+
 
 #class RootCollectorEditView(collector.RootCollectorEditView):
     #__call__ = ViewPageTemplateFile('controlpanel.pt')
