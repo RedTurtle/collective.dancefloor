@@ -37,12 +37,14 @@ def addMarkerInterface(obj, *ifaces):
         if not iface.providedBy(obj):
             interface.alsoProvides(obj, iface)
 
+
 def removeMarkerInterface(obj, *ifaces):
     """ remove a marker interface
     """
     for iface in ifaces:
         if iface.providedBy(obj):
             interface.noLongerProvides(obj, iface)
+
 
 def enable_party(context):
     """ Make this container a local site and add all
@@ -60,7 +62,8 @@ def enable_party(context):
 
     interface.directlyProvides(lookup, ILocalNewsletterLookup)
     sm.registerUtility(lookup, name=name, provided=ILocalNewsletterLookup)
-    info("Local utility %s@%s registered" % (lookup,name))
+    info("Local utility %s@%s registered" % (lookup, name))
+
 
 def disable_party(context):
     if ISite.providedBy(context):
@@ -70,7 +73,6 @@ def disable_party(context):
         if lookup is not None:
             sm.unregisterUtility(lookup, name=name, provided=IChannelLookup)
             info("Local utility %s@%s unregistered." % (lookup, name))
-
 
 
 class InterfaceMarkerField(ExtensionField, BooleanField):
@@ -108,10 +110,24 @@ class FolderExtender(object):
     def getFields(self):
         return self.fields
 
+
 class TestView(BrowserView):
 
     def __call__(self):
         from collective.singing.interfaces import IChannelLookup
         return component.getAllUtilitiesRegisteredFor(IChannelLookup)
+
+
+class NewsletterAvailableCondition(BrowserView):
+    """ Returns True or False depending on whether the current context is a
+    local newsletter aware
+    """
+    @property
+    def _action_condition(self):
+        context = self.context
+        return IDanceFloorParty.providedBy(context)
+
+    def __call__(self):
+        return self._action_condition
 
 # vim: set ft=python ts=4 sw=4 expandtab :
