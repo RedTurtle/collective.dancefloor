@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.2'
+version = '0.3'
 
 setup(name='collective.dancefloor',
       version=version,
@@ -17,7 +17,7 @@ setup(name='collective.dancefloor',
       keywords='',
       author='Ramon Bartl, Stefan Eletzhofer',
       author_email='ramon.bartl@inquant.de, stefan.eletzhofer@inquant.de',
-      url='https://svn.plone.org/svn/collective/collective.dancefloor/trunk',
+      url='https://svn.plone.org/svn/collective/collective.dancefloor/tags/0,3',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['collective'],
