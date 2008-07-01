@@ -1,6 +1,20 @@
 Changelog
 =========
 
+0.3 - first PyPi release
+------------------------
+
+* fix up various views to acommodate local configuration
+  [ramonski]
+
+* fix nasty bug where local channels loose their acquired request
+  [seletz]
+
+* add global IChannelLookup utility which in turn looks for local
+  ILocalNewsletterLookup utilities. The latter are then registered
+  for dancefloor-enabled folders, which provide ISite
+  [seletz]
+
 0.2 - Unreleased
 ----------------
 
