@@ -45,7 +45,10 @@ def get_context_from_request(request):
 def get_site():
     """ Find the next Site iff we're not "on" a site already.  """
     site = getSite()
-    request = site.REQUEST
+    try:
+        request = site.REQUEST
+    except:
+        from ipdb import set_trace; set_trace() 
     context = get_context_from_request(request)
 
     if ISite.providedBy(context):
