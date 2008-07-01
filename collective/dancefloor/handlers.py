@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# File: .py
+# File: handlers.py
 #
 # Copyright (c) InQuant GmbH
 #
@@ -20,8 +20,6 @@
 
 __author__    = """Stefan Eletzhofer <stefan.eletzhofer@inquant.de>"""
 __docformat__ = 'plaintext'
-__revision__  = "$Revision$"
-__version__   = '$Revision$'[11:-2]
 
 import logging
 
@@ -31,12 +29,7 @@ from zope import interface
 from zope.app.container.interfaces import IObjectAddedEvent
 from zope.lifecycleevent.interfaces import IObjectModifiedEvent
 
-
-
 info = logging.getLogger("collective.dancefloor").info
-
-
-
 
 #@component.adapter(IDanceFloor, IObjectModifiedEvent)
 #def dancefloor_changed(dancefloor, event):

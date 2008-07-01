@@ -9,6 +9,9 @@
     <five:registerPackage package="." initialize=".initialize" />
 
     <include package="archetypes.schemaextender" />
+
+    <include package=".browser" />
+
     <adapter
         factory=".extender.FolderExtender"
         name="collective.dacefloor.localparty"
@@ -36,20 +39,6 @@
       description="A Singing &amp; Dancing extension to enable local newsletters"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
-
-      <browser:page
-         name="testview"
-         class=".extender.TestView"
-         for=".interfaces.IDanceFloor"
-         permission="zope2.View"
-         />
-
-      <browser:page
-         name="newsletter_available_condition"
-         class=".extender.NewsletterAvailableCondition"
-         for="*"
-         permission="zope2.View"
-         />
 
 </configure>
 

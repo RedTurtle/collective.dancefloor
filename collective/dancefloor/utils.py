@@ -18,15 +18,12 @@
 #  along with this program; if not, write to the Free Software
 #  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-__author__    = """Stefan Eletzhofer <stefan.eletzhofer@inquant.de>"""
+__author__  = """Stefan Eletzhofer <stefan.eletzhofer@inquant.de>"""
 __docformat__ = 'plaintext'
-__revision__  = "$Revision$"
-__version__   = '$Revision$'[11:-2]
 
 import logging
 
 from zope import component
-from zope import interface
 
 from Products.CMFCore.interfaces import ISiteRoot
 

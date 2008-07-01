@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# File: .py
+# File: tools.py
 #
 # Copyright (c) InQuant GmbH
 #
@@ -20,8 +20,6 @@
 
 __author__    = """Stefan Eletzhofer <stefan.eletzhofer@inquant.de>"""
 __docformat__ = 'plaintext'
-__revision__  = "$Revision$"
-__version__   = '$Revision$'[11:-2]
 
 import logging
 

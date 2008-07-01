@@ -6,7 +6,7 @@
     <object name="index_html" meta_type="CMF Action" i18n:domain="collective.dancefloor">
       <property name="title" i18n:translate="">Newsletter</property>
       <property name="description" i18n:translate=""></property>
-      <property name="url_expr">string:${object_url}/channels</property>
+      <property name="url_expr">string:${object_url}/newsletter_administration_view</property>
       <property name="icon_expr"></property>
       <property name="available_expr">object/@@newsletter_available_condition</property>
       <property name="permissions">

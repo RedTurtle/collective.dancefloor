@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.dancing">
+
+  <head>
+    <!--<metal:block fill-slot="top_slot"-->
+                 <!--tal:define="dummy python:request.set('disable_border',1)" />-->
+    <!--<metal:block fill-slot="column_one_slot" />-->
+    <!--<metal:block fill-slot="column_two_slot" />-->
+  </head>
+
+  <body>
+    <metal:main fill-slot="main">
+
+      <h1 tal:content="view/label">Configuration</h1>
+
+      <div class="portalMessage"
+           tal:condition="view/status | nothing" tal:content="view/status">
+      </div>
+
+      <div id="skel-contents">
+        <span tal:replace="structure view/contents" />
+      </div>
+
+    </metal:main>
+
+  </body>
+</html>
+
+<!-- vim: set ft=html ts=2 sw=2 expandtab : -->
