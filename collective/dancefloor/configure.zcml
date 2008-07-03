@@ -25,11 +25,12 @@
     <!--<subscriber handler=".handlers.register_local_utility" />-->
     <!--<subscriber handler=".handlers.dancefloor_changed" />-->
 
-    <!-- Folders are our Dancefloors -->
-    <five:implements
+    <!-- This is only an example configuration, mark your custom dancefloor in
+      - your own configrue file -->
+    <!--<five:implements
         class="Products.ATContentTypes.content.folder.ATFolder"
         interface=".interfaces.IDanceFloor"
-        />
+        />-->
 
     <!-- Register the installation GenericSetup extension profile -->
     <genericsetup:registerProfile
