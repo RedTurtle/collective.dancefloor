@@ -37,6 +37,6 @@ def add_tools(container):
         container["collectors"] = CollectorContainer("collectors")
 
     if "newsletter_lookup" not in container.keys():
-        container["newsletter_lookup"] = LocalNewsletterLookup("collectors")
+        container["newsletter_lookup"] = LocalNewsletterLookup("newsletter_lookup")
 
 # vim: set ft=python ts=4 sw=4 expandtab :

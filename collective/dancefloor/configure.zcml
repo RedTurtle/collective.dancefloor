@@ -14,8 +14,9 @@
 
     <adapter
         factory=".extender.FolderExtender"
-        name="collective.dacefloor.localparty"
+        name="collective.dancefloor.localparty"
         />
+
 
     <utility
         factory=".channels.ChannelLookupDelegator"

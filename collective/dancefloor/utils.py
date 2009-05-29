@@ -38,12 +38,12 @@ def get_context_from_request(request):
 
 def get_site():
     """ Find the next Site iff we're not "on" a site already.  """
-    site = getSite()
-    try:
+    site = context = getSite()
+    # rewritten from old seletz's code with try/except-pdb. I hope this is how it should work [naro]
+    request = getattr(site, 'REQUEST', None)
+    if request is not None:
         request = site.REQUEST
-    except:
-        from ipdb import set_trace; set_trace() 
-    context = get_context_from_request(request)
+        context = get_context_from_request(request)
 
     if ISite.providedBy(context):
         return context

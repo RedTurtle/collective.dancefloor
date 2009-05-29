@@ -1,6 +1,11 @@
 Changelog
 =========
 
+* make local collectors working. This requires activating of overrides.zcml 
+  with custom collector vocabulary. There are both, local and global, collectors 
+  listed.
+  [naro]
+
 0.3 - first PyPi release
 ------------------------
 

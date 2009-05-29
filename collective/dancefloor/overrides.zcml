@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="collective.dancefloor">
+
+    <include package="collective.dancing" file="configure.zcml" />
+    <utility component=".vocabularies.collector_vocabulary"
+           name="Collector Vocabulary" />         
+
+</configure>
+
+<!-- vim: set ft=xml ts=2 sw=2 expandtab : -->

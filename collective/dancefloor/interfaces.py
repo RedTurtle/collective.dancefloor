@@ -37,4 +37,7 @@ class ILocalNewsletterLookup(Interface):
     def local_channels():
         """ return local channels """
 
+    def local_collectors():
+        """ return local collectors """
+
 # vim: set ft=python ts=4 sw=4 expandtab :

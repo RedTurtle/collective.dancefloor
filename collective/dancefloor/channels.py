@@ -64,6 +64,13 @@ class LocalNewsletterLookup(Explicit, SimpleItem):
             return channels.values()
         return []
 
+    def local_collectors(self):
+        parent = aq_parent(aq_inner(self))
+        collectors = parent.get("collectors")
+        if collectors is not None:
+            return collectors.values()
+        return []
+
     def __repr__(self):
         return "<LocalNewsletterLookup at %s>" % id(self)
 

@@ -102,6 +102,11 @@ class TestLocalChannels(DanceFloorTestCase):
         self.add_channel(self.subfloor, "sf_channel1")
         self.add_channel(self.subfloor, "sf_channel2")
 
+        self.add_collector(self.dancefloor, "df_collector1")
+        self.add_collector(self.dancefloor, "df_collector2")
+        self.add_collector(self.subfloor, "sf_collector1")
+        self.add_collector(self.subfloor, "sf_collector2")
+        
         from collective.dancing.channel import PortalNewsletters, tool_added
         news = PortalNewsletters("portal_newsletters")
         self.portal["portal_newsletters"] = news
@@ -110,6 +115,10 @@ class TestLocalChannels(DanceFloorTestCase):
     def add_channel(self, floor, name):
         from collective.dancing.channel import Channel
         floor[name] = Channel(name)
+
+    def add_collector(self, floor, name):
+        from collective.dancing.collector import Collector
+        floor[name] = Collector(name, name)
 
     def beforeTearDown(self):
         hooks.clearSite()
@@ -132,6 +141,24 @@ class TestLocalChannels(DanceFloorTestCase):
 
         channels = sorted([ c.name for c in util.local_channels()])
         self.assertEqual(channels, sorted(self.dancefloor.channels.keys()))
+
+    def test_subfloor_collectors(self):
+        # we're on the subfloor
+        hooks.setSite(self.subfloor)
+        name = get_name_for_site(self.subfloor)
+        util = component.getUtility(ILocalNewsletterLookup, name=name)
+
+        collectors = sorted([ c.id for c in util.local_collectors()])
+        self.assertEqual(collectors, sorted(self.subfloor.collectors.keys()))
+
+    def test_dancefloor_collectors(self):
+        # we're on the dancefloor
+        hooks.setSite(self.dancefloor)
+        name = get_name_for_site(self.dancefloor)
+        util = component.getUtility(ILocalNewsletterLookup, name=name)
+
+        collectors = sorted([ c.id for c in util.local_collectors()] )
+        self.assertEqual(collectors, sorted(self.subfloor.collectors.keys()))
 
     #def test_lookup(self):
         #from collective.singing.channel import channel_lookup
