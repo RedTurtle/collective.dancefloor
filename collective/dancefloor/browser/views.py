@@ -21,15 +21,27 @@
 __author__ = 'Ramon Bartl <ramon.bartl@inquant.de>'
 __docformat__ = 'plaintext'
 
+from zope import component
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from collective.dancing.browser import channel
 from collective.dancing.browser import stats
 from collective.dancing.browser import collector
+from collective.singing.interfaces import IChannelLookup
 
 from collective.dancefloor.interfaces import IDanceFloorParty
 from collective.dancefloor import dancefloorMessageFactory as _
+from collective.dancefloor.utils import get_site
+
+from plone.z3cform import z2
+from plone.z3cform import crud
+from plone.z3cform import layout
+
+def back_to_newsletter(self):
+    root = get_site()
+    return dict(label=_(u"Up to Local Singing & Dancing configuration"),
+                url=root.absolute_url() + '/newsletter_administration_view')
 
 
 class ControlPanelView(BrowserView):
@@ -37,23 +49,54 @@ class ControlPanelView(BrowserView):
     contents = ViewPageTemplateFile('controlpanel-links.pt')
     label = _(u"Local Singing & Dancing configuration")
 
+class LocalChannelEditForm(channel.ChannelEditForm):
+    def _update_subforms(self):
+        self.subforms = []
+        util = component.getUtility(IChannelLookup)
+        for channel in util():
+            subform = crud.EditSubForm(self, self.request)
+            subform.content = channel
+            subform.content_id = channel.name
+            subform.update()
+            self.subforms.append(subform)
+
+
+class LocalManageChannelsForm(channel.ManageChannelsForm):
+    editform_factory = LocalChannelEditForm
+    def get_items(self):
+        util = component.getUtility(IChannelLookup)
+        return [x for x in util()]
+    
 
 class ChannelAdministrationView(channel.ChannelAdministrationView):
     __call__ = ViewPageTemplateFile('controlpanel.pt')
     label = _(u'Local channel administration')
+    back_link = back_to_newsletter
 
+    def contents(self):
+        # use LocalManageChannelsForm to show local channels only 
+        # A call to 'switch_on' is required before we can render z3c.forms.
+        z2.switch_on(self)
+        return LocalManageChannelsForm(self.context.channels, self.request)()
 
 class CollectorAdministrationView(collector.CollectorAdministrationView):
     __call__ = ViewPageTemplateFile('controlpanel.pt')
     label = _(u'Local collector administration')
+    back_link = back_to_newsletter
 
 
-class ChannelStatsView(stats.StatsView):
-    index = ViewPageTemplateFile('controlpanel.pt')
+class ChannelStatsForm(stats.StatsForm):
+    def get_items(self):
+        util = component.getUtility(IChannelLookup)
+        return [(channel.name, stats.ChannelStatistics(channel)) 
+                for channel in util()]
 
+ChannelStatsView = layout.wrap_form(
+    ChannelStatsForm,
+    index=ViewPageTemplateFile('controlpanel.pt'),
+    label = _(u"Local newsletter statistics"),
+    back_link = back_to_newsletter)
 
-#class RootCollectorEditView(collector.RootCollectorEditView):
-    #__call__ = ViewPageTemplateFile('controlpanel.pt')
 
 
 class NewsletterAvailableCondition(BrowserView):

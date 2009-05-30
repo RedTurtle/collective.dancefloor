@@ -4,11 +4,11 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="here/main_template/macros/master"
-      i18n:domain="collective.dancing">
+      i18n:domain="collective.dancefloor">
 
   <head>
-    <!--<metal:block fill-slot="top_slot"-->
-                 <!--tal:define="dummy python:request.set('disable_border',1)" />-->
+    <metal:block fill-slot="top_slot"
+                 tal:define="dummy python:request.set('disable_border',1)" />
     <!--<metal:block fill-slot="column_one_slot" />-->
     <!--<metal:block fill-slot="column_two_slot" />-->
   </head>
@@ -17,6 +17,15 @@
     <metal:main fill-slot="main">
 
       <h1 tal:content="view/label">Configuration</h1>
+
+      <a href="#" i18n:translate=""
+         class="link-parent"
+         tal:define="link view/back_link | nothing"
+         tal:condition="link"
+         tal:content="link/label"
+         tal:attributes="href link/url">
+        Up to Site Setup
+      </a>
 
       <div class="portalMessage"
            tal:condition="view/status | nothing" tal:content="view/status">
