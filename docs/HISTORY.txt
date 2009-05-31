@@ -1,6 +1,9 @@
 Changelog
 =========
 
+* display local channels only in the local newsletter form
+  [naro]
+
 * make local collectors working. This requires activating of overrides.zcml 
   with custom collector vocabulary. There are both, local and global, collectors 
   listed.
