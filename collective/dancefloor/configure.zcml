@@ -23,9 +23,6 @@
         provides="collective.singing.interfaces.IChannelLookup"
         />
 
-    <!--<subscriber handler=".handlers.register_local_utility" />-->
-    <!--<subscriber handler=".handlers.dancefloor_changed" />-->
-
     <!-- This is only an example configuration, mark your custom dancefloor in
       - your own configrue file -->
     <!--<five:implements
