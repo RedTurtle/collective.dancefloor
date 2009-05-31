@@ -35,7 +35,7 @@ from collective.dancefloor import dancefloorMessageFactory as _
 from collective.dancefloor.utils import get_site
 
 from plone.z3cform import z2
-from plone.z3cform import crud
+from plone.z3cform.crud import crud
 from plone.z3cform import layout
 
 def back_to_newsletter(self):
