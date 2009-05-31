@@ -30,6 +30,11 @@ class IDanceFloor(Interface):
 class IDanceFloorParty(Interface):
     """ there is a party on the floor
     """
+class IDanceFloorChannels(Interface):
+    """ Marker interface for local channels. Used for browser:defaultView registration """
+
+class IDanceFloorCollectors(Interface):
+    """ Marker interface for local collectors. Used for browser:defaultView registration """
 
 class ILocalNewsletterLookup(Interface):
     """ a utility which returns local channels """

@@ -23,12 +23,22 @@
         class=".views.ChannelAdministrationView"
         permission="cmf.ManagePortal"
     />
+    
+    <browser:defaultView
+        for="..interfaces.IDanceFloorChannels"
+        name="local_channel_administration_view"
+    />
 
     <browser:page
         name="local_collector_administration_view"
         for="collective.dancing.collector.CollectorContainer"
         class=".views.CollectorAdministrationView"
         permission="cmf.ManagePortal"
+    />
+
+    <browser:defaultView
+        for="..interfaces.IDanceFloorCollectors"
+        name="local_collector_administration_view"
     />
 
     <browser:page

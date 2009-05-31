@@ -1,6 +1,12 @@
 Changelog
 =========
 
+* added IDanceFloorChannels and IDanceFloorCollectors marker interfaces.
+  Interfaces marks local /channels and /collectors folders and are used for 
+  browser:defaultView to avoid using of wrong (global) templates in case of 
+  the folder is accessed directly through http://floor/channels URL.
+  [naro]
+  
 * display local channels only in the local newsletter form
   [naro]
 

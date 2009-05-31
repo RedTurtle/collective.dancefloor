@@ -21,20 +21,24 @@
 __author__ = """Stefan Eletzhofer <stefan.eletzhofer@inquant.de>"""
 __docformat__ = 'plaintext'
 
+from zope import interface
 from collective.dancing.channel import ChannelContainer
 from collective.dancing.collector import CollectorContainer
 from collective.dancefloor.channels import LocalNewsletterLookup
-
+from collective.dancefloor.interfaces import IDanceFloorChannels
+from collective.dancefloor.interfaces import IDanceFloorCollectors
 
 def add_tools(container):
 
     if "channels" not in container.keys():
         container["channels"] = ChannelContainer("channels")
         channels = container.get("channels")
+        interface.directlyProvides(channels, IDanceFloorChannels)
         del channels['default-channel']
 
     if "collectors" not in container.keys():
         container["collectors"] = CollectorContainer("collectors")
+        interface.directlyProvides(container["collectors"], IDanceFloorCollectors)
 
     if "newsletter_lookup" not in container.keys():
         container["newsletter_lookup"] = LocalNewsletterLookup("newsletter_lookup")
