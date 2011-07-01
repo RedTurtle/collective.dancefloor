@@ -13,14 +13,16 @@ def collector_vocabulary(context):
     site = get_site()
     # do not process local configuration if the current site is PloneSite
     if not IPloneSiteRoot.providedBy(site):
-        local_lookup_utility = component.queryUtility(ILocalNewsletterLookup, name=get_name_for_site(site))
-        if local_lookup_utility is not None:
-            for collector in local_lookup_utility.local_collectors():
-                terms.append(
-                    zope.schema.vocabulary.SimpleTerm(
-                        value=collector,
-                        token='/'.join(collector.getPhysicalPath()),
-                        title=collector.title))
+        utility = component.queryUtility(ILocalNewsletterLookup, name=get_name_for_site(site))
+        if utility is not None:
+            local_lookup_utility=utility.get('newsletter_lookup',None)
+            if local_lookup_utility:
+                for collector in local_lookup_utility.local_collectors():
+                    terms.append(
+                        zope.schema.vocabulary.SimpleTerm(
+                            value=collector,
+                            token='/'.join(collector.getPhysicalPath()),
+                            title=collector.title))
             
     # get global collectors (original vocabulary code)
     root = component.getUtility(IPloneSiteRoot)

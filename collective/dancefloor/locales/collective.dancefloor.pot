@@ -1,0 +1,48 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-07-01 07:22+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.dancefloor\n"
+
+#: ./extender.py:118
+msgid "Enable local newsletter functionality"
+msgstr ""
+
+#: ./browser/views.py:50
+msgid "Local Singing & Dancing configuration"
+msgstr ""
+
+#: ./browser/views.py:73
+msgid "Local channel administration"
+msgstr ""
+
+#: ./browser/views.py:84
+msgid "Local collector administration"
+msgstr ""
+
+#: ./browser/views.py:97
+msgid "Local newsletter statistics"
+msgstr ""
+
+#. Default: "Newsletter"
+#: ./profiles/default/actions.xml
+msgid "Newsletter"
+msgstr ""
+
+#: ./browser/views.py:43
+msgid "Up to Local Singing & Dancing configuration"
+msgstr ""
+

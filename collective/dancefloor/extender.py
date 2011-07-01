@@ -69,7 +69,6 @@ def enable_party(context):
     """
     if not ISite.providedBy(context):
         make_objectmanager_site(context)
-
     sm = context.getSiteManager()
     name = get_name_for_site(context)
 
@@ -91,20 +90,21 @@ def disable_party(context):
 
 
 class InterfaceMarkerField(ExtensionField, BooleanField):
-
-    def get(self, instance, **kwargs):
-        return IDanceFloorParty.providedBy(instance)
-
-    def getRaw(self, instance, **kwargs):
-        return IDanceFloorParty.providedBy(instance)
-
-    def set(self, instance, value, **kwargs):
-        if value:
-            addMarkerInterface(instance, IDanceFloorParty)
-            enable_party(instance)
-        else:
-            disable_party(instance)
-            removeMarkerInterface(instance, IDanceFloorParty)
+    """
+    """
+#    def get(self, instance, **kwargs):
+#        return IDanceFloorParty.providedBy(instance)
+#
+#    def getRaw(self, instance, **kwargs):
+#        return IDanceFloorParty.providedBy(instance)
+#
+#    def set(self, instance, value, **kwargs):
+#        if value:
+#            addMarkerInterface(instance, IDanceFloorParty)
+##            enable_party(instance)
+#        else:
+##            disable_party(instance)
+#            removeMarkerInterface(instance, IDanceFloorParty)
 
 
 class FolderExtender(object):
@@ -116,7 +116,7 @@ class FolderExtender(object):
             schemata="settings",
             default=False,
             widget = BooleanWidget(
-                label=_("Enable local news letter functionality"))),
+                label=_("Enable local newsletter functionality"))),
             ]
 
     def __init__(self, context):

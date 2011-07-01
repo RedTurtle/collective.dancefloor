@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.4.0 (2011/07/??)
+------------------
+
+* some fixes and test with Plone4 [micecchi]
+
 * added IDanceFloorChannels and IDanceFloorCollectors marker interfaces.
   Interfaces marks local /channels and /collectors folders and are used for 
   browser:defaultView to avoid using of wrong (global) templates in case of 
