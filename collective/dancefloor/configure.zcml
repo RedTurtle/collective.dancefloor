@@ -11,6 +11,7 @@
     <include package="archetypes.schemaextender" />
 
     <include package=".browser" />
+    <include package=".events" />
 
     <adapter
         factory=".extender.FolderExtender"
@@ -25,10 +26,10 @@
 
     <!-- This is only an example configuration, mark your custom dancefloor in
       - your own configrue file -->
-    <!--<five:implements
+    <five:implements
         class="Products.ATContentTypes.content.folder.ATFolder"
         interface=".interfaces.IDanceFloor"
-        />-->
+        />
 
     <!-- Register the installation GenericSetup extension profile -->
     <genericsetup:registerProfile
