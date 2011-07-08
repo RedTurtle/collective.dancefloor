@@ -46,11 +46,13 @@ class ChannelLookupDelegator(object):
         #site = get_site()
         site = getSite()
         name = get_name_for_site(site)
-        local_lookup_utility = component.queryUtility(ILocalNewsletterLookup, name=name)
-        if local_lookup_utility:
-            for channel in local_lookup_utility.local_channels():
-                channel = fix_request(channel, 0)
-                yield channel
+        lookup_utility = component.queryUtility(ILocalNewsletterLookup, name=name)
+        if lookup_utility:
+            local_lookup_utility=lookup_utility.get('newsletter_lookup',None)
+            if local_lookup_utility:
+                for channel in local_lookup_utility.local_channels():
+                    channel = fix_request(channel, 0)
+                    yield channel
         return
 
 
