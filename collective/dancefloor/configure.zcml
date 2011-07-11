@@ -16,7 +16,7 @@
     <include package=".events" />
 	
     <adapter
-        factory=".extender.FolderExtender"
+        factory=".extender.DanceFloorExtender"
         name="collective.dancefloor.localparty"
 		provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
         />

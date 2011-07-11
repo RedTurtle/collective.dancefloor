@@ -95,5 +95,13 @@ class FolderExtender(object):
 
     def getFields(self):
         return self.fields
+    
+    def getOrder(self, schematas):
+        """ Manipulate the order in which fields appear.
+        @param schematas: Dictonary of schemata name -> field lists
+        @return: Dictionary of reordered field lists per schemata.
+        """
+
+        return schematas
 
 # vim: set ft=python ts=4 sw=4 expandtab :
