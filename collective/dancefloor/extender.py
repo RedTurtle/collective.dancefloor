@@ -80,7 +80,7 @@ class InterfaceMarkerField(ExtensionField, BooleanField):
 class FolderExtender(object):
     component.adapts(IDanceFloor)
     interface.implements(IOrderableSchemaExtender, IBrowserLayerAwareExtender)
-    layer = IERFolderExtenderLayer
+    layer = IDanceFloorLayer
     
     fields = [
         InterfaceMarkerField("dancefloor_enabled",
