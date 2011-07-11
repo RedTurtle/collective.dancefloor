@@ -77,7 +77,7 @@ class InterfaceMarkerField(ExtensionField, BooleanField):
 #            removeMarkerInterface(instance, IDanceFloorParty)
 
 
-class FolderExtender(object):
+class DanceFloorExtender(object):
     component.adapts(IDanceFloor)
     interface.implements(IOrderableSchemaExtender, IBrowserLayerAwareExtender)
     layer = IDanceFloorLayer
