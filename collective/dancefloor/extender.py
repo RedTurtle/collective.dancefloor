@@ -1,51 +1,21 @@
 # -*- coding: utf-8 -*-
-#
-# File: extender.py
-#
-# Copyright (c) InQuant GmbH
-#
-#  This program is free software; you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation; either version 2 of the License, or
-#  (at your option) any later version.
-#
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-#
-#  You should have received a copy of the GNU General Public License
-#  along with this program; if not, write to the Free Software
-#  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-
 __author__ = 'Ramon Bartl <ramon.bartl@inquant.de>'
 __docformat__ = 'plaintext'
 
 
-from zope import interface
-from zope import component
-
-from zope.app.component.interfaces import ISite
-
+from Products.Archetypes.public import BooleanField, BooleanWidget
 from archetypes.schemaextender.field import ExtensionField
-from archetypes.schemaextender.interfaces import ISchemaExtender
-
-from Products.Archetypes.public import BooleanField
-from Products.Archetypes.public import BooleanWidget
-
-from five.localsitemanager import make_objectmanager_site
-
-from collective.singing.interfaces import IChannelLookup
-
-from collective.dancefloor.interfaces import IDanceFloor
-from collective.dancefloor.interfaces import IDanceFloorParty
-from collective.dancefloor.interfaces import ILocalNewsletterLookup
-
-from collective.dancefloor.utils import get_name_for_site
-from collective.dancefloor.tools import add_tools
-
+from archetypes.schemaextender.interfaces import IOrderableSchemaExtender, \
+    IBrowserLayerAwareExtender
 from collective.dancefloor import dancefloorMessageFactory as _
-
+from collective.dancefloor.interfaces import IDanceFloor, IDanceFloorParty, \
+    ILocalNewsletterLookup, IDanceFloorLayer
+from collective.dancefloor.tools import add_tools
+from collective.dancefloor.utils import get_name_for_site
+from collective.singing.interfaces import IChannelLookup
+from five.localsitemanager import make_objectmanager_site
+from zope import component, interface
+from zope.app.component.interfaces import ISite
 
 def addMarkerInterface(obj, *ifaces):
     """ add a marker interface
@@ -109,8 +79,9 @@ class InterfaceMarkerField(ExtensionField, BooleanField):
 
 class FolderExtender(object):
     component.adapts(IDanceFloor)
-    interface.implements(ISchemaExtender)
-
+    interface.implements(IOrderableSchemaExtender, IBrowserLayerAwareExtender)
+    layer = IERFolderExtenderLayer
+    
     fields = [
         InterfaceMarkerField("dancefloor_enabled",
             schemata="settings",
