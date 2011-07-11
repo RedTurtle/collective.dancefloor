@@ -18,6 +18,7 @@
     <adapter
         factory=".extender.FolderExtender"
         name="collective.dancefloor.localparty"
+		provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
         />
 
 
