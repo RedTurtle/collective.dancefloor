@@ -1,0 +1,92 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.dancefloor">
+
+<head>
+    <metal:block fill-slot="top_slot"
+                 tal:define="dummy python:request.set('disable_border',1)" />
+</head>
+
+<body>
+<div metal:fill-slot="main">
+    <tal:main-macro metal:define-macro="main" 
+         tal:define="kssClassesView context/@@kss_field_decorator_view;
+                     getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
+					 local_channels view/getLocalChannels;
+					 other_newsletters view/getOtherChannels;
+                     templateId template/getId;">
+
+
+        <h1 class="documentFirstHeading" i18n:translate="subscribe_title"> 
+            Subscribe
+        </h1>
+        
+		<p class="discreet">
+			This is a list of available channels that you can subscribe.
+		</p>
+		
+		<!--form class="subscribeNewsletterForm"
+              method="POST"
+              action=""
+              tal:attributes="action string:${here/absolute_url}/subscribe_view">
+		
+		  <fieldset id="subscribeNewsletterFieldset">
+            <div class="searchCouncillorFields">
+                <div class="field">
+	                <label for="local_channels" i18n:translate="local_channels_label">Local channels</label>
+	                <div tal:define="allTypes python:putils.getUserFriendlyTypes();
+                             typeLists python:here.createMultiColumnList(allTypes, numCols=2, sort_on='self');"
+                     tal:attributes="style python:test(isRTL, 'float: right;; margin-left: 2em;;', 'float: left;; margin-right: 2em;;');"
+                     tal:repeat="sublist typeLists">
+                    <tal:items repeat="type sublist">
+                    <input type="checkbox"
+                           name="portal_type:list"
+                           value="#"
+                           class="noborder"
+                           checked="checked"
+                           tal:attributes="value type;
+                                           id string:portal_type_${repeat/sublist/number}_${repeat/type/number}"/>
+                    <label for=""
+                           i18n:translate=""
+                           tal:attributes="for string:portal_type_${repeat/sublist/number}_${repeat/type/number}"
+                           tal:content="python: portal_types.getTypeInfo(type).Title()"
+                           />
+                    <br />
+                    </tal:items>
+                </div>
+          </div-->
+		
+        <div class="localChannelsWrapper"
+		     tal:condition="local_channels">
+		    
+        	<ul>
+        		<li tal:repeat="channel local_channels">
+        			<span tal:content="channel/Title"></span>
+        		</li>
+        	</ul>
+        </div>
+		
+		<div class="otherChannelsWrapper"
+		     tal:condition="other_newsletters">
+			<h3>Other newsletters</h3>
+			<tal:newletters repeat="newsletter other_newsletters">
+				<dl>
+					<dt>
+						<a tal:attributes="href newsletter/link"
+						   tal:content="newsletter/title"></a>
+					</dt>
+					<dd tal:repeat="channel python:newsletter.get('channels',[])">
+						<span tal:content="channel/Title"></span>
+					</dd>
+				</dl>
+			</tal:newletters>
+		</div>
+    </tal:main-macro>
+</div>
+
+</body>
+</html>
