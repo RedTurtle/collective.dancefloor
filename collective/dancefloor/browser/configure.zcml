@@ -47,6 +47,14 @@
         class=".views.ChannelStatsView"
         permission="cmf.ManagePortal"
     />
+	
+	<browser:page
+        name="newsletters_subscribe"
+        for="*"
+        class=".subscribe_view.SubscribeView"
+		template="subscribe_view.pt"
+        permission="zope2.View"
+    />
 
 </configure>
 

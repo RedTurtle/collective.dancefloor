@@ -25,11 +25,12 @@ setup(name='collective.dancefloor',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'collective.singing>=0.4dev',
-          'collective.dancing>=0.4dev',
+          'collective.dancing',
           'archetypes.schemaextender',
       ],
       entry_points="""
-      # -*- Entry points: -*-
+      # -*- entry_points -*-
+      [z3c.autoinclude.plugin]
+      target = plone
       """,
       )

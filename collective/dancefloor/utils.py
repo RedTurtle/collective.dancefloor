@@ -37,7 +37,7 @@ def get_context_from_request(request):
 
 
 def get_site():
-    """ Find the next Site iff we're not "on" a site already.  """
+    """ Find the next Site if we're not "on" a site already.  """
     site = context = getSite()
     # rewritten from old seletz's code with try/except-pdb. I hope this is how it should work [naro]
     # ...hm it does not.. do we really need context from request ? 
@@ -55,5 +55,3 @@ def get_site():
 def get_name_for_site(site):
     path = site.getPhysicalPath()[1:]
     return ".".join(path)
-
-# vim: set ft=python ts=4 sw=4 expandtab :

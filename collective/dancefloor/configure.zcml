@@ -17,8 +17,8 @@
 	
     <adapter
         factory=".extender.DanceFloorExtender"
-        name="collective.dancefloor.localparty"
 		provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
+        name="collective.dancefloor.localparty"
         />
 
 
@@ -26,7 +26,10 @@
         factory=".channels.ChannelLookupDelegator"
         provides="collective.singing.interfaces.IChannelLookup"
         />
-
+    
+	<!-- indexer for enabled_newsletter -->
+    <adapter name="dancefloor_enabled" factory=".indexer.dancefloor_enabled" />
+  
     <!-- This is only an example configuration, mark your custom dancefloor in
       - your own configrue file -->
     <five:implements
