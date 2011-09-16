@@ -14,14 +14,14 @@
         name="newsletter_administration_view"
         for="collective.dancefloor.interfaces.IDanceFloor"
         class=".views.ControlPanelView"
-        permission="cmf.ManagePortal"
+        permission="collective.dancefloor.ManageLocalNewsletters"
     />
 
     <browser:page
         name="local_channel_administration_view"
         for="collective.dancing.channel.ChannelContainer"
         class=".views.ChannelAdministrationView"
-        permission="cmf.ManagePortal"
+        permission="collective.dancefloor.ManageLocalNewsletters"
     />
     
     <browser:defaultView
@@ -33,7 +33,7 @@
         name="local_collector_administration_view"
         for="collective.dancing.collector.CollectorContainer"
         class=".views.CollectorAdministrationView"
-        permission="cmf.ManagePortal"
+        permission="collective.dancefloor.ManageLocalNewsletters"
     />
 
     <browser:defaultView
@@ -45,7 +45,7 @@
         name="local-newsletter-stats.html"
         for="collective.dancing.channel.ChannelContainer"
         class=".views.ChannelStatsView"
-        permission="cmf.ManagePortal"
+        permission="collective.dancefloor.ManageLocalNewsletters"
     />
 	
 	<browser:page

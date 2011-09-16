@@ -10,7 +10,7 @@
       <property name="icon_expr"></property>
       <property name="available_expr">object/@@newsletter_available_condition</property>
       <property name="permissions">
-        <element value="Manage portal"/>
+        <element value="collective.dancefloor: Manage Local Newsletters"/>
       </property>
       <property name="visible">True</property>
     </object>

@@ -61,7 +61,7 @@ def enable_party(context):
 def disable_party(context):
     if ISite.providedBy(context):
         sm = context.getSiteManager()
-        name = get_name_for_site(sm)
+        name = get_name_for_site(context)
         lookup = context.get("newsletter_lookup")
         if lookup is not None:
-            sm.unregisterUtility(lookup, name=name, provided=IChannelLookup)
+            sm.unregisterUtility(lookup, name=name, provided=ILocalNewsletterLookup)

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-07-01 07:22+0000\n"
+"POT-Creation-Date: 2011-09-14 14:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,12 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.dancefloor\n"
 
-#: ./extender.py:118
+#: ./extender.py:24
 msgid "Enable local newsletter functionality"
+msgstr ""
+
+#: ./browser/subscribe_view.py:65
+msgid "Global Newsletters"
 msgstr ""
 
 #: ./browser/views.py:50
@@ -37,6 +41,11 @@ msgstr ""
 msgid "Local newsletter statistics"
 msgstr ""
 
+#. Default: "Manage local newsletter"
+#: ./profiles/default/actions.xml
+msgid "Manage local newsletter"
+msgstr ""
+
 #. Default: "Newsletter"
 #: ./profiles/default/actions.xml
 msgid "Newsletter"
@@ -44,5 +53,35 @@ msgstr ""
 
 #: ./browser/views.py:43
 msgid "Up to Local Singing & Dancing configuration"
+msgstr ""
+
+#. Default: "Local newsletters"
+#: ./browser/subscribe_view.pt:37
+msgid "local_newsletters_label"
+msgstr ""
+
+#. Default: "Newsletters"
+#: ./browser/subscribe_view.pt:48
+msgid "newsletters_label"
+msgstr ""
+
+#. Default: "No newsletters availables."
+#: ./browser/subscribe_view.pt:33
+msgid "no_local_newsletters_label"
+msgstr ""
+
+#. Default: "Other newsletters"
+#: ./browser/subscribe_view.pt:50
+msgid "other_newsletters_label"
+msgstr ""
+
+#. Default: "This is a list of available channels that you can subscribe to."
+#: ./browser/subscribe_view.pt:28
+msgid "subscribe_text"
+msgstr ""
+
+#. Default: "Subscribe"
+#: ./browser/subscribe_view.pt:24
+msgid "subscribe_title"
 msgstr ""
 

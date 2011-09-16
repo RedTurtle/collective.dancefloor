@@ -25,62 +25,39 @@
             Subscribe
         </h1>
         
-		<p class="discreet">
-			This is a list of available channels that you can subscribe.
+		<p class="discreet"
+		   i18n:translate="subscribe_text">
+			This is a list of available channels that you can subscribe to.
 		</p>
 		
-		<!--form class="subscribeNewsletterForm"
-              method="POST"
-              action=""
-              tal:attributes="action string:${here/absolute_url}/subscribe_view">
-		
-		  <fieldset id="subscribeNewsletterFieldset">
-            <div class="searchCouncillorFields">
-                <div class="field">
-	                <label for="local_channels" i18n:translate="local_channels_label">Local channels</label>
-	                <div tal:define="allTypes python:putils.getUserFriendlyTypes();
-                             typeLists python:here.createMultiColumnList(allTypes, numCols=2, sort_on='self');"
-                     tal:attributes="style python:test(isRTL, 'float: right;; margin-left: 2em;;', 'float: left;; margin-right: 2em;;');"
-                     tal:repeat="sublist typeLists">
-                    <tal:items repeat="type sublist">
-                    <input type="checkbox"
-                           name="portal_type:list"
-                           value="#"
-                           class="noborder"
-                           checked="checked"
-                           tal:attributes="value type;
-                                           id string:portal_type_${repeat/sublist/number}_${repeat/type/number}"/>
-                    <label for=""
-                           i18n:translate=""
-                           tal:attributes="for string:portal_type_${repeat/sublist/number}_${repeat/type/number}"
-                           tal:content="python: portal_types.getTypeInfo(type).Title()"
-                           />
-                    <br />
-                    </tal:items>
-                </div>
-          </div-->
-		
+		<p tal:condition="python:not local_channels and not other_newsletters"
+              i18n:translate="no_local_newsletters_label">No newsletters availables.</p>
         <div class="localChannelsWrapper"
 		     tal:condition="local_channels">
-		    
-        	<ul>
-        		<li tal:repeat="channel local_channels">
-        			<span tal:content="channel/Title"></span>
-        		</li>
-        	</ul>
+     		<h3 i18n:translate="local_newsletters_label">Local newsletters</h3>
+        	<dl>
+        		<dd tal:repeat="channel local_channels">
+        			<a tal:attributes="href string:${here/absolute_url}/channels/${channel/getId}/subscribe.html">
+                        <span tal:content="channel/Title"></span>
+                    </a>
+        		</dd>
+        	</dl>
         </div>
-		
 		<div class="otherChannelsWrapper"
 		     tal:condition="other_newsletters">
-			<h3>Other newsletters</h3>
+			<h3 tal:condition="not:local_channels"
+			    i18n:translate="newsletters_label">Newsletters</h3>
+			<h3 tal:condition="local_channels"
+			    i18n:translate="other_newsletters_label">Other newsletters</h3>
 			<tal:newletters repeat="newsletter other_newsletters">
 				<dl>
 					<dt>
-						<a tal:attributes="href newsletter/link"
-						   tal:content="newsletter/title"></a>
+					   <span tal:content="newsletter/title"></span>
 					</dt>
 					<dd tal:repeat="channel python:newsletter.get('channels',[])">
-						<span tal:content="channel/Title"></span>
+						<a tal:attributes="href string:${newsletter/link}/channels/${channel/getId}/subscribe.html">
+						  <span tal:content="channel/Title"></span>
+						</a>
 					</dd>
 				</dl>
 			</tal:newletters>

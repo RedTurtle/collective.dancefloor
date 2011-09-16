@@ -4,8 +4,6 @@ Changelog
 0.4.0 (2011/07/??)
 ------------------
 
-* some fixes and test with Plone4 [micecchi]
-
 * added IDanceFloorChannels and IDanceFloorCollectors marker interfaces.
   Interfaces marks local /channels and /collectors folders and are used for 
   browser:defaultView to avoid using of wrong (global) templates in case of 
@@ -19,6 +17,9 @@ Changelog
   with custom collector vocabulary. There are both, local and global, collectors 
   listed.
   [naro]
+
+* some fixes and test with Plone4 [micecchi]
+* added new local role to manage local newsletter [micecchi]
 
 0.3 - first PyPi release
 ------------------------

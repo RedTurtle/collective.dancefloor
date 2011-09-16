@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<rolemap>
+  <roles>
+    <role name="LocalNewsletterManager"/>
+  </roles>
+  <permissions>
+    <permission name="collective.dancefloor: Manage Local Newsletters"
+                acquire="True">
+      <role name="LocalNewsletterManager"/>
+      <role name="Manager"/>
+    </permission>
+	<permission name="collective.dancing: Manage newsletters"
+                acquire="True">
+      <role name="LocalNewsletterManager"/>
+      <role name="Manager"/>
+    </permission>
+  </permissions>
+</rolemap>

@@ -11,7 +11,13 @@
     <i18n:registerTranslations directory="locales" />
 	
     <include package="archetypes.schemaextender" />
-
+    
+	<!--Register permission id-->
+    <permission 
+        id="collective.dancefloor.ManageLocalNewsletters" 
+        title="collective.dancefloor: Manage Local Newsletters" 
+     />
+	
     <include package=".browser" />
     <include package=".events" />
 	
@@ -27,6 +33,12 @@
         provides="collective.singing.interfaces.IChannelLookup"
         />
     
+	<!-- define localrole for local newsletters manager -->
+    <utility
+        name="LocalNewsletterManager"
+        factory=".localroles.LocalNewsletterManagerRole"
+        />
+	
 	<!-- indexer for enabled_newsletter -->
     <adapter name="dancefloor_enabled" factory=".indexer.dancefloor_enabled" />
   

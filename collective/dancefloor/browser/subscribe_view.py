@@ -4,6 +4,12 @@ from collective.dancefloor import dancefloorMessageFactory as _
 from collective.dancefloor.interfaces import IDanceFloor,IDanceFloorParty
 from plone.memoize.view import memoize
 from Products.CMFCore.utils import getToolByName
+import datetime
+from zope import component
+from collective.dancing.browser.subscribe import SubscriptionAddForm
+from zope.component import getUtility
+from zope.schema.interfaces import IVocabularyFactory
+from collective.singing.channel import channel_lookup
 
 class SubscribeView(BrowserView):
     """Vista del modulo di richiesta"""
@@ -39,8 +45,28 @@ class SubscribeView(BrowserView):
                                      'link':newsletter.getURL(),
                                      'channels':newsletter_channels}
                     channels.append(newsletter_dict)
+        
+        global_newsletter=self.getGlobalChannels()
+        if global_newsletter:
+            channels.append(global_newsletter)
         return channels
     
+    def getGlobalChannels(self):
+        portal_newsletter=getToolByName(self.context,'portal_newsletters')
+        global_channels=portal_newsletter.channels
+        if not global_channels:
+            return {}
+        subscribeable_channels=[]
+        for channel in global_channels.keys():
+            if global_channels[channel].subscribeable:
+                subscribeable_channels.append(global_channels[channel])
+        if not subscribeable_channels:
+            return {}
+        return {'title':_("Global Newsletters"),
+                'link':portal_newsletter.absolute_url(),
+                'channels':subscribeable_channels}
+                
+                
     def getNewsletterChannels(self,local_newsletter):
         """
         return a list of local channels of a local_newsletter

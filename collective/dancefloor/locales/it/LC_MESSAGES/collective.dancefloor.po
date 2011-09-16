@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-07-01 07:22+0000\n"
+"POT-Creation-Date: 2011-09-14 14:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Andrea Cecchi <andrea.cecchi@redturtle.it>\n"
 "Language-Team: RedTurtle Technology <sviluppoplone@redturtle.net>\n"
@@ -14,9 +14,13 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.dancefloor\n"
 
-#: ./extender.py:118
+#: ./extender.py:24
 msgid "Enable local newsletter functionality"
 msgstr "Abilita la newsletter locale"
+
+#: ./browser/subscribe_view.py:65
+msgid "Global Newsletters"
+msgstr "Newsletter globali"
 
 #: ./browser/views.py:50
 msgid "Local Singing & Dancing configuration"
@@ -34,12 +38,47 @@ msgstr "Amministrazione dei collettori locale"
 msgid "Local newsletter statistics"
 msgstr "Statistiche locali della newsletter"
 
+#. Default: "Manage local newsletter"
+#: ./profiles/default/actions.xml
+msgid "Manage local newsletter"
+msgstr "Gestisci le newsletter locali"
+
 #. Default: "Newsletter"
 #: ./profiles/default/actions.xml
 msgid "Newsletter"
-msgstr ""
+msgstr "Newsletter"
 
 #: ./browser/views.py:43
 msgid "Up to Local Singing & Dancing configuration"
 msgstr "Su alla configurazione locale di Singing & Dancing"
+
+#. Default: "Local newsletters"
+#: ./browser/subscribe_view.pt:37
+msgid "local_newsletters_label"
+msgstr "Newsletter locali"
+
+#. Default: "Newsletters"
+#: ./browser/subscribe_view.pt:48
+msgid "newsletters_label"
+msgstr "Newsletter"
+
+#. Default: "No newsletters availables."
+#: ./browser/subscribe_view.pt:33
+msgid "no_local_newsletters_label"
+msgstr "Non ci sono newsletter a cui iscriversi."
+
+#. Default: "Other newsletters"
+#: ./browser/subscribe_view.pt:50
+msgid "other_newsletters_label"
+msgstr "Altre newsletter"
+
+#. Default: "This is a list of available channels that you can subscribe to."
+#: ./browser/subscribe_view.pt:28
+msgid "subscribe_text"
+msgstr "Questa è una lista di canali a cui ti puoi iscrivere."
+
+#. Default: "Subscribe"
+#: ./browser/subscribe_view.pt:24
+msgid "subscribe_title"
+msgstr "Iscriviti"
 
