@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.4.0-UNRELEASED'
+version = '0.4.0'
 
 setup(name='collective.dancefloor',
       version=version,
