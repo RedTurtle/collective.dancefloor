@@ -33,7 +33,8 @@ class SubscribeView(BrowserView):
         """
         pc=getToolByName(self.context,'portal_catalog')
         this_newsletter=self.getLocalNewsletter()
-        local_newsletters=pc(dancefloor_enabled=True)
+        local_newsletters=pc(dancefloor_enabled=True,
+                             object_provides=IDanceFloorParty.__identifier__)
         if not local_newsletters:
             return []
         channels=[]

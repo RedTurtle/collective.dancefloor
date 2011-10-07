@@ -52,12 +52,19 @@
     <!-- Register the installation GenericSetup extension profile -->
     <genericsetup:registerProfile
       name="default"
-      title="collective.dancefloor"
+      title="Collective Dancefloor"
       directory="profiles/default"
       description="A Singing &amp; Dancing extension to enable local newsletters"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
-
+    
+	<genericsetup:importStep
+      name="collective.dancefloor"
+      title="Collective Dancefloor configuration"
+      description="Configures collective.dancefloor properties"
+      handler="collective.dancefloor.exportimport.import_various"
+      />
+	  
 </configure>
 
 <!-- vim: set ft=xml ts=2 sw=2 expandtab : -->

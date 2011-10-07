@@ -24,7 +24,8 @@ def manageLocalNewsletter(obj, event):
             enable_party(obj)
         else:
             removeMarkerInterface(obj, IDanceFloorParty)
-            disable_party(obj)    
+            disable_party(obj)
+        obj.reindexObject()
 
 def addMarkerInterface(obj, *ifaces):
     """ add a marker interface
