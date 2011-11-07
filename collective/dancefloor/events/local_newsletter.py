@@ -65,4 +65,4 @@ def disable_party(context):
         name = get_name_for_site(context)
         lookup = context.get("newsletter_lookup")
         if lookup is not None:
-            sm.unregisterUtility(lookup, name=name, provided=ILocalNewsletterLookup)
+            sm.unregisterUtility(name=name, provided=ILocalNewsletterLookup)
