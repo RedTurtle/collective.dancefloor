@@ -37,7 +37,8 @@ from collective.dancefloor.interfaces import ILocalNewsletterLookup
 from collective.dancefloor.utils import get_name_for_site
 
 from OFS.SimpleItem import SimpleItem
-
+from logging import getLogger
+logger = getLogger('collective.dancefloor')
 
 class ChannelLookupDelegator(object):
     interface.implements(IChannelLookup)
@@ -46,17 +47,19 @@ class ChannelLookupDelegator(object):
         #site = get_site()
         site = getSite()
         name = get_name_for_site(site)
+        lookup_utility=None
         try:
             lookup_utility = component.queryUtility(ILocalNewsletterLookup, name=name)
-            if lookup_utility:
-                local_lookup_utility=lookup_utility.get('newsletter_lookup',None)
-                if local_lookup_utility:
-                    for channel in local_lookup_utility.local_channels():
-                        channel = fix_request(channel, 0)
-                        yield channel
-            return
         except KeyError:
-            return
+            logger.exception('Error looking up utility: %s ' % name)
+        except AttributeError:
+            logger.exception('Error looking up utility: %s ' % name)
+        if lookup_utility:
+            local_lookup_utility=lookup_utility.get('newsletter_lookup',None)
+            if local_lookup_utility:
+                for channel in local_lookup_utility.local_channels():
+                    channel = fix_request(channel, 0)
+                    yield channel
 
 
 class LocalNewsletterLookup(Explicit, SimpleItem):
