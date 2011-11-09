@@ -4,6 +4,10 @@
     <role name="LocalNewsletterManager"/>
   </roles>
   <permissions>
+	<permission name="Sharing page: delegate Local Newsletter Manager role"
+                acquire="False">
+      <role name="Manager"/>
+    </permission>
     <permission name="collective.dancefloor: Manage Local Newsletters"
                 acquire="True">
       <role name="LocalNewsletterManager"/>

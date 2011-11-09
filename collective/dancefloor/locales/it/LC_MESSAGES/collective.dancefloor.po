@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-09-14 14:56+0000\n"
+"POT-Creation-Date: 2011-11-09 10:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Andrea Cecchi <andrea.cecchi@redturtle.it>\n"
 "Language-Team: RedTurtle Technology <sviluppoplone@redturtle.net>\n"
@@ -18,7 +18,7 @@ msgstr ""
 msgid "Enable local newsletter functionality"
 msgstr "Abilita la newsletter locale"
 
-#: ./browser/subscribe_view.py:65
+#: ./browser/subscribe_view.py:66
 msgid "Global Newsletters"
 msgstr "Newsletter globali"
 
@@ -81,4 +81,9 @@ msgstr "Questa è una lista di canali a cui ti puoi iscrivere."
 #: ./browser/subscribe_view.pt:24
 msgid "subscribe_title"
 msgstr "Iscriviti"
+
+#. Default: "Manage Local Newsletters"
+#: ./localroles.py:11
+msgid "title_local_newsletter_manager"
+msgstr "Gestore newsletter locali"
 

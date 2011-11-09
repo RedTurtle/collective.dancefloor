@@ -10,7 +10,7 @@ PROJECTNAME = 'collective.dancefloor'
 #permission to manage local newsletters
 security.declarePublic("DelegateLocalNewsletterManager")
 DelegateLocalNewsletterManager = "Sharing page: delegate Local Newsletter Manager role"
-setDefaultRoles(DelegateLocalNewsletterManager, ('Manager',))
+setDefaultRoles(DelegateLocalNewsletterManager, ())
 
 #permission to manage local newsletters
 security.declarePublic("ManageLocalNewsletter")
