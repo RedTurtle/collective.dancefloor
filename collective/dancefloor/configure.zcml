@@ -4,6 +4,7 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
 	xmlns:i18n="http://namespaces.zope.org/i18n"
+	xmlns:monkey="http://namespaces.plone.org/monkey"
     i18n_domain="collective.dancefloor">
 
     <!-- Make this package a Zope 2 product -->
@@ -49,6 +50,14 @@
         interface=".interfaces.IDanceFloor"
         />
 
+    <!-- monkey patch to fix HTMLComposer -->
+    <monkey:patch
+        description="patch to fix the default HTML Composer"
+        class="collective.dancing.composer.HTMLComposer"
+        original="_more_vars"
+        replacement=".monkey.composer_more_vars"
+        />
+		
     <!-- Register the installation GenericSetup extension profile -->
     <genericsetup:registerProfile
       name="default"

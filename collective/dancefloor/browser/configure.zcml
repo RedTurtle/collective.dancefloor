@@ -55,6 +55,13 @@
 		template="subscribe_view.pt"
         permission="zope2.View"
     />
+	
+	<browser:page
+      name="my-subscriptions.html"
+      for="collective.dancefloor.interfaces.IDanceFloor"
+      class="collective.dancing.browser.subscribe.Subscriptions"
+      permission="zope2.View"
+      />
 
 </configure>
 

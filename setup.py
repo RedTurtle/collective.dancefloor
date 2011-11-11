@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.4.2'
+version = '0.4.3'
 
 setup(name='collective.dancefloor',
       version=version,
@@ -27,6 +27,7 @@ setup(name='collective.dancefloor',
           'setuptools',
           'collective.dancing',
           'archetypes.schemaextender',
+          'archetypes.monkeypatcher',
       ],
       entry_points="""
       # -*- entry_points -*-
