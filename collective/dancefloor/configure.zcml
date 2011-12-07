@@ -57,6 +57,13 @@
         original="_more_vars"
         replacement=".monkey.composer_more_vars"
         />
+	
+	<monkey:patch
+        description="patch to fix the subscription portlet"
+        class="collective.dancing.browser.portlets.channelsubscribe.PortletSubscriptionAddForm"
+        original="status_already_subscribed"
+        replacement=".monkey.status_already_subscribed"
+        />
 		
     <!-- Register the installation GenericSetup extension profile -->
     <genericsetup:registerProfile
