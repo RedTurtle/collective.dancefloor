@@ -53,5 +53,7 @@ def get_site():
 
 
 def get_name_for_site(site):
+    if not site:
+        return ""
     path = site.getPhysicalPath()[1:]
     return ".".join(path)
