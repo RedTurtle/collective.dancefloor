@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from Products.CMFCore.utils import getToolByName
+from collective.dancefloor import logger
 
 def import_various(context):
     if context.readDataFile('dancefloor-various.txt') is None:
@@ -14,14 +15,14 @@ def addKeyToCatalog(portal):
     @param context: context providing portal_catalog 
     '''
     pc = portal.portal_catalog
-    pl = portal.plone_log
+    
     indexes = pc.indexes()
     for idx in getKeysToAdd():
         if idx[0] in indexes:
-            pl("Found the '%s' index in the catalog, nothing changed.\n" % idx[0])
+            logger.info("Found the '%s' index in the catalog, nothing changed.\n" % idx[0])
         else:
             pc.addIndex(name=idx[0], type=idx[1], extra=idx[2])
-            pl("Added '%s' (%s) to the catalog.\n" % (idx[0], idx[1]))
+            logger.info("Added '%s' (%s) to the catalog.\n" % (idx[0], idx[1]))
  
 def getKeysToAdd():
     '''

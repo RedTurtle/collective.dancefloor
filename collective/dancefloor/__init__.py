@@ -22,8 +22,10 @@ __author__ = 'Ramon Bartl <ramon.bartl@inquant.de>'
 __docformat__ = 'plaintext'
 
 from zope.i18nmessageid import MessageFactory
-
 dancefloorMessageFactory = MessageFactory('collective.dancefloor')
+
+from logging import getLogger
+logger = getLogger('collective.dancefloor')
 
 def initialize(context):
     pass

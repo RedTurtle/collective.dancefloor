@@ -32,13 +32,12 @@ from collective.singing.interfaces import IChannelLookup
 from collective.dancing.utils import fix_request
 
 from collective.dancefloor.interfaces import ILocalNewsletterLookup
-
+from collective.dancefloor import logger
 #from collective.dancefloor.utils import get_site
 from collective.dancefloor.utils import get_name_for_site
 
 from OFS.SimpleItem import SimpleItem
-from logging import getLogger
-logger = getLogger('collective.dancefloor')
+
 
 class ChannelLookupDelegator(object):
     interface.implements(IChannelLookup)
