@@ -63,4 +63,11 @@
       permission="zope2.View"
       />
 
+    <browser:page
+      name="clear_default_queue"
+      for="collective.dancing.channel.IPortalNewsletters"
+      class=".clear_default_queue.ClearDefaultQueueView"
+      permission="cmf.ManagePortal"
+      />
+
 </configure>

@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from Products.CMFCore.utils import getToolByName
 from zope.app.component.interfaces import ISite
 from five.localsitemanager import make_objectmanager_site
 from collective.dancefloor.utils import get_name_for_site
 from collective.dancefloor.tools import add_tools
 from zope import interface
-from collective.dancefloor.interfaces import IDanceFloor
 from collective.dancefloor.interfaces import IDanceFloorParty
 from collective.dancefloor.interfaces import ILocalNewsletterLookup
 

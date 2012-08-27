@@ -1,18 +1,12 @@
 # -*- coding: utf-8 -*-
 from Products.Five import BrowserView
 from collective.dancefloor import dancefloorMessageFactory as _
-from collective.dancefloor.interfaces import IDanceFloor,IDanceFloorParty
+from collective.dancefloor.interfaces import IDanceFloorParty
 from plone.memoize.view import memoize
 from Products.CMFCore.utils import getToolByName
-import datetime
-from zope import component
-from collective.dancing.browser.subscribe import SubscriptionAddForm
-from zope.component import getUtility
-from zope.schema.interfaces import IVocabularyFactory
-from collective.singing.channel import channel_lookup
 
 class SubscribeView(BrowserView):
-    """Vista del modulo di richiesta"""
+    """A view with le list of available channels"""
     
     @memoize    
     def getLocalNewsletter(self):

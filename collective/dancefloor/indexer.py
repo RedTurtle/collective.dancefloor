@@ -1,5 +1,5 @@
 from plone.indexer.decorator import indexer
-from collective.dancefloor.interfaces import IDanceFloor,IDanceFloorParty
+from collective.dancefloor.interfaces import IDanceFloorParty
 
 @indexer(IDanceFloorParty)
 def dancefloor_enabled(object, **kw):

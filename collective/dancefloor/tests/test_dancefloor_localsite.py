@@ -1,6 +1,5 @@
 import unittest
 
-from zope import interface
 from zope import component
 
 from zope.app.component import hooks

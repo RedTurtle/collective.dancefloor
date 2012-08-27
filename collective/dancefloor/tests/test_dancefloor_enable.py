@@ -1,11 +1,9 @@
 import unittest
 
-from zope import interface
-
 from collective.dancefloor.tests.base import DanceFloorTestCase
-from collective.dancefloor.interfaces import *
-
+from collective.dancefloor.interfaces import IDanceFloorParty
 from Products.ATContentTypes.content.folder import ATFolder
+
 
 class TestDancefloorEnabled(DanceFloorTestCase):
     """ Test enable/disable dancefloor
