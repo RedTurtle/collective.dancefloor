@@ -6,7 +6,7 @@ version = '1.0.0'
 setup(name='collective.dancefloor',
       version=version,
       description="S&D extension to allow local newsletters",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
