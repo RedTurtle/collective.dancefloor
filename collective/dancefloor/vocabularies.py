@@ -13,6 +13,7 @@ def collector_vocabulary(context):
     site = get_site()
     # do not process local configuration if the current site is PloneSite
     if not IPloneSiteRoot.providedBy(site):
+        import pdb;pdb.set_trace()
         utility = component.queryUtility(ILocalNewsletterLookup, name=get_name_for_site(site))
         if utility is not None:
             local_lookup_utility=utility.get('newsletter_lookup',None)

@@ -14,9 +14,9 @@ def manageLocalNewsletter(obj, event):
     @author: andrea cecchi
     manda una mail all'autore del commento, alla pubblicazione dello stesso
     """
-    dancefloor_enabled_field=obj.getField('dancefloor_enabled')
+    dancefloor_enabled_field = obj.getField('dancefloor_enabled')
     if dancefloor_enabled_field:
-        dancefloor_enabled=dancefloor_enabled_field.get(obj)
+        dancefloor_enabled = dancefloor_enabled_field.get(obj)
         if dancefloor_enabled:
             addMarkerInterface(obj, IDanceFloorParty)
             enable_party(obj)
@@ -24,6 +24,20 @@ def manageLocalNewsletter(obj, event):
             removeMarkerInterface(obj, IDanceFloorParty)
             disable_party(obj)
         obj.reindexObject()
+
+
+def movedLocalNewsletter(obj, event):
+    """
+    @author: andrea cecchi
+    manda una mail all'autore del commento, alla pubblicazione dello stesso
+    """
+    dancefloor_enabled_field = obj.getField('dancefloor_enabled')
+    if dancefloor_enabled_field and obj.get('newsletter_lookup', None):
+        dancefloor_enabled = dancefloor_enabled_field.get(obj)
+        if dancefloor_enabled:
+            disable_party(obj)
+            enable_party(obj)
+
 
 def addMarkerInterface(obj, *ifaces):
     """ add a marker interface
@@ -39,7 +53,8 @@ def removeMarkerInterface(obj, *ifaces):
     for iface in ifaces:
         if iface.providedBy(obj):
             interface.noLongerProvides(obj, iface)
-        
+
+
 def enable_party(context):
     """ Make this container a local site and add all
         the needed tools, if they're not there yet.

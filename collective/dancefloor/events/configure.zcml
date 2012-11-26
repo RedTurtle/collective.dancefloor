@@ -13,5 +13,11 @@
             	Products.Archetypes.interfaces.IObjectEditedEvent"
            		handler = ".local_newsletter.manageLocalNewsletter"
             	/>
+    
+    <subscriber for = "..interfaces.IDanceFloor
+                zope.lifecycleevent.interfaces.IObjectMovedEvent"
+                handler = ".local_newsletter.movedLocalNewsletter"
+                />
+                
 				
 </configure>
