@@ -55,7 +55,6 @@ def get_site():
 def get_name_for_site(site):
     # Make sure we don't get UID from parent folder accidentally
     context = site.aq_base
-    import pdb;pdb.set_trace()
     if not context:
         return ""
     try:

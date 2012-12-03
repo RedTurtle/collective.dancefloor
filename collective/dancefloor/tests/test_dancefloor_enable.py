@@ -26,5 +26,3 @@ def test_suite():
     suite = unittest.TestSuite()
     suite.addTest(unittest.makeSuite(TestDancefloorEnabled))
     return suite
-
-# vim: set ft=python ts=4 sw=4 expandtab :

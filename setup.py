@@ -3,6 +3,8 @@ import os
 
 version = '1.0.0'
 
+tests_require = ['plone.app.testing']
+
 setup(name='collective.dancefloor',
       version=version,
       description="S&D extension to allow local newsletters",
@@ -23,6 +25,8 @@ setup(name='collective.dancefloor',
       namespace_packages=['collective'],
       include_package_data=True,
       zip_safe=False,
+      tests_require=tests_require,
+      extras_require=dict(test=tests_require),
       install_requires=[
           'setuptools',
           'collective.dancing',

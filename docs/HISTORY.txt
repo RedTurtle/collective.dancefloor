@@ -6,6 +6,8 @@ Changelog
 
 * fixed logger [micecchi]
 * added view that fix old global newsletter channels [micecchi]
+* fixed utility registration. Now uses folder UID [micecchi]
+* fixed folder rename/move. Now an event update the utility [micecchi]
 
 0.4.5 (2011/12/07)
 ------------------

@@ -26,7 +26,7 @@ class TestLocalSite(DanceFloorTestCase):
         _ = self.folder.invokeFactory("Folder", "dancefloor")
         self.dancefloor = self.folder.get(_)
         _ = self.dancefloor.invokeFactory("Folder", "subfloor")
-        self.subfloor= self.dancefloor.get(_)
+        self.subfloor = self.dancefloor.get(_)
 
     def beforeTearDown(self):
         hooks.clearSite()
@@ -64,7 +64,7 @@ class TestTwoDancefloors(DanceFloorTestCase):
         _ = self.folder.invokeFactory("Folder", "dancefloor")
         self.dancefloor = self.folder.get(_)
         _ = self.dancefloor.invokeFactory("Folder", "subfloor")
-        self.subfloor= self.dancefloor.get(_)
+        self.subfloor = self.dancefloor.get(_)
 
     def beforeTearDown(self):
         hooks.clearSite()
@@ -93,7 +93,7 @@ class TestLocalChannels(DanceFloorTestCase):
         _ = self.folder.invokeFactory("Folder", "dancefloor")
         self.dancefloor = self.folder.get(_)
         _ = self.dancefloor.invokeFactory("Folder", "subfloor")
-        self.subfloor= self.dancefloor.get(_)
+        self.subfloor = self.dancefloor.get(_)
         enable_party(self.dancefloor)
         enable_party(self.subfloor)
         self.add_channel(self.dancefloor, "df_channel1")
@@ -105,7 +105,7 @@ class TestLocalChannels(DanceFloorTestCase):
         self.add_collector(self.dancefloor, "df_collector2")
         self.add_collector(self.subfloor, "sf_collector1")
         self.add_collector(self.subfloor, "sf_collector2")
-        
+
         from collective.dancing.channel import PortalNewsletters, tool_added
         news = PortalNewsletters("portal_newsletters")
         self.portal["portal_newsletters"] = news
