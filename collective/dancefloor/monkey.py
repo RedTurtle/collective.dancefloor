@@ -37,7 +37,7 @@ def composer_more_vars(self, subscription, items):
 
 def status_already_subscribed(self):
     channel_url = ""
-    for item in self.context.aq_chain:
+    for item in self.context.aq_inner.aq_chain:
         if not channel_url:
             if IDanceFloorParty.providedBy(item):
                 channel_url = "%s/portal_newsletters" % item.absolute_url()
