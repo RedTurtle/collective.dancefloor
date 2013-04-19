@@ -10,35 +10,35 @@ Changelog
 1.0.0 (2012-12-03)
 ------------------
 
-* fixed logger [micecchi]
-* added view that fix old global newsletter channels [micecchi]
-* fixed utility registration. Now uses folder UID [micecchi]
-* fixed folder rename/move. Now an event update the utility [micecchi]
+* fixed logger [cekk]
+* added view that fix old global newsletter channels [cekk]
+* fixed utility registration. Now uses folder UID [cekk]
+* fixed folder rename/move. Now an event update the utility [cekk]
 
 0.4.5 (2011/12/07)
 ------------------
 
-* fixed sendsecret url in subscription portlet [micecchi]
+* fixed sendsecret url in subscription portlet [cekk]
 
 0.4.4 (2011/11/14)
 ------------------
 
-* fixed dependency [micecchi]
+* fixed dependency [cekk]
 
 0.4.3 (2011/11/11)
 ------------------
 
-* patched composer html to send the right link to subscribe [micecchi]
+* patched composer html to send the right link to subscribe [cekk]
 
 0.4.2 (2011/11/09)
 ------------------
 
-* fixed localrole [micecchi]
+* fixed localrole [cekk]
 
 0.4.1 (2011/11/07)
 ------------------
 
-* fixed bug in erasing folders [micecchi]
+* fixed bug in erasing folders [cekk]
 
 0.4.0 (2011/11/07)
 ------------------
@@ -57,9 +57,9 @@ Changelog
   listed.
   [naro]
 
-* some fixes and test with Plone4 [micecchi]
+* some fixes and test with Plone4 [cekk]
 
-* added new local role to manage local newsletter [micecchi]
+* added new local role to manage local newsletter [cekk]
 
 0.3 - first PyPi release
 ------------------------
