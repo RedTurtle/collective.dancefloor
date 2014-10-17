@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0.2 (unreleased)
+1.0.2 (2014-10-17)
 ------------------
 
 - fix reindexObject in edited event. Now reindex only the required index [cekk]
