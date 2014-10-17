@@ -12,7 +12,7 @@ from collective.dancefloor.interfaces import ILocalNewsletterLookup
 def manageLocalNewsletter(obj, event):
     """
     @author: andrea cecchi
-    manda una mail all'autore del commento, alla pubblicazione dello stesso
+    Add a marker interface if the field is set, and update the index
     """
     dancefloor_enabled_field = obj.getField('dancefloor_enabled')
     if dancefloor_enabled_field:
@@ -23,13 +23,13 @@ def manageLocalNewsletter(obj, event):
         else:
             removeMarkerInterface(obj, IDanceFloorParty)
             disable_party(obj)
-        obj.reindexObject()
+        obj.reindexObject(idxs=['dancefloor_enabled'])
 
 
 def movedLocalNewsletter(obj, event):
     """
     @author: andrea cecchi
-    manda una mail all'autore del commento, alla pubblicazione dello stesso
+    Re-initialize newsletter behaviors when a folder is moved
     """
     dancefloor_enabled_field = obj.getField('dancefloor_enabled')
     if dancefloor_enabled_field and obj.get('newsletter_lookup', None):

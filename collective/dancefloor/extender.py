@@ -7,20 +7,22 @@ from collective.dancefloor import dancefloorMessageFactory as _
 from collective.dancefloor.interfaces import IDanceFloor, IDanceFloorLayer
 from zope import component, interface
 
+
 class InterfaceMarkerField(ExtensionField, BooleanField):
     """
     """
+
 
 class DanceFloorExtender(object):
     component.adapts(IDanceFloor)
     interface.implements(IOrderableSchemaExtender, IBrowserLayerAwareExtender)
     layer = IDanceFloorLayer
-    
+
     fields = [
         InterfaceMarkerField("dancefloor_enabled",
             schemata="settings",
             default=False,
-            widget = BooleanWidget(
+            widget=BooleanWidget(
                 label=_("Enable local newsletter functionality"))),
             ]
 
@@ -29,7 +31,7 @@ class DanceFloorExtender(object):
 
     def getFields(self):
         return self.fields
-    
+
     def getOrder(self, schematas):
         """ Manipulate the order in which fields appear.
         @param schematas: Dictonary of schemata name -> field lists

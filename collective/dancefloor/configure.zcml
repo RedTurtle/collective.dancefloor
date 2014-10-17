@@ -25,7 +25,7 @@
 	
     <adapter
         factory=".extender.DanceFloorExtender"
-		provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
+		    provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
         name="collective.dancefloor.localparty"
         />
 
