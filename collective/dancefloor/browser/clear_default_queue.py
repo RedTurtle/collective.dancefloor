@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 from collective.singing.async import IQueue
-from zope.app.component.hooks import getSiteManager
+try:
+    # Plone < 4.3
+    from zope.app.component.hooks import getSiteManager
+except ImportError:
+    # Plone >= 4.3
+    from zope.component.hooks import getSiteManager
 from Products.Five import BrowserView
 from zope import component
 from collective.dancefloor import logger

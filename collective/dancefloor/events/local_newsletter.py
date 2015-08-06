@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
-
-from zope.app.component.interfaces import ISite
+try:
+    # Plone<4.3
+    from zope.app.component.interfaces import ISite
+except ImportError:
+    # Plone >=4.3
+    from zope.component.interfaces import ISite
 from five.localsitemanager import make_objectmanager_site
 from collective.dancefloor.utils import get_name_for_site
 from collective.dancefloor.tools import add_tools

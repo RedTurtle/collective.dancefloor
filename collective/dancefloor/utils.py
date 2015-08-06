@@ -26,8 +26,14 @@ from zope import component
 
 from Products.CMFCore.interfaces import ISiteRoot
 
-from zope.app.component.interfaces import ISite
-from zope.app.component.hooks import getSite
+try:
+    # Plone < 4.3
+    from zope.app.component.interfaces import ISite
+    from zope.app.component.hooks import getSite
+except ImportError:
+    # Plone >= 4.3
+    from zope.component.interfaces import ISite
+    from zope.component.hooks import getSite
 
 
 def get_context_from_request(request):
@@ -40,7 +46,7 @@ def get_site():
     """ Find the next Site if we're not "on" a site already.  """
     site = context = getSite()
     # rewritten from old seletz's code with try/except-pdb. I hope this is how it should work [naro]
-    # ...hm it does not.. do we really need context from request ? 
+    # ...hm it does not.. do we really need context from request ?
     # request = getattr(site, 'REQUEST', None)
     # if request is not None:
     #     request = site.REQUEST

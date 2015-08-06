@@ -2,7 +2,13 @@ from Products.CMFCore.utils import getToolByName
 from collective.dancefloor import logger
 from collective.dancefloor.interfaces import IDanceFloor, ILocalNewsletterLookup
 from collective.dancefloor.events.local_newsletter import enable_party
-from zope.app.component.interfaces import ISite
+try:
+    # Plone < 4.3
+    from zope.app.component.interfaces import ISite
+except ImportError:
+    # Plone >= 4.3
+    from zope.component.interfaces import ISite
+
 default_profile = 'profile-collective.dancefloor:default'
 
 

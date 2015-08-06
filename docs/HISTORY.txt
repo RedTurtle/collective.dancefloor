@@ -4,7 +4,7 @@ Changelog
 1.0.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Plone 4.3 compatibility [cekk]
 
 
 1.0.2 (2014-10-17)
@@ -56,16 +56,16 @@ Changelog
 ------------------
 
 * added IDanceFloorChannels and IDanceFloorCollectors marker interfaces.
-  Interfaces marks local /channels and /collectors folders and are used for 
-  browser:defaultView to avoid using of wrong (global) templates in case of 
+  Interfaces marks local /channels and /collectors folders and are used for
+  browser:defaultView to avoid using of wrong (global) templates in case of
   the folder is accessed directly through http://floor/channels URL.
   [naro]
-  
+
 * display local channels only in the local newsletter form
   [naro]
 
-* make local collectors working. This requires activating of overrides.zcml 
-  with custom collector vocabulary. There are both, local and global, collectors 
+* make local collectors working. This requires activating of overrides.zcml
+  with custom collector vocabulary. There are both, local and global, collectors
   listed.
   [naro]
 
@@ -97,4 +97,3 @@ Changelog
 
 * schema extender for enabling local newsletter functionality
   added [rbartl]
-
