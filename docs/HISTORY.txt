@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0.3 (unreleased)
+1.0.3 (2015-12-02)
 ------------------
 
 - Plone 4.3 compatibility [cekk]
